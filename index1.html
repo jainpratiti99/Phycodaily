@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhycoDaily™ | Green Gold Nutrition</title>
+  <style>
+    :root {
+      --deep-ocean: #08313a;
+      --ocean-blue: #0f6f7a;
+      --algae-green: #3aa76d;
+      --leaf-green: #1f8f5f;
+      --mist-bg: #f2fbfa;
+      --font-primary: "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: var(--font-primary); background: var(--mist-bg); color: var(--deep-ocean); line-height:1.7; }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('images/ocean-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    header img { max-width:150px; margin-bottom: 20px; }
+    header h1 { font-size:2rem; margin-bottom:10px; }
+    header p { color: var(--ocean-blue); max-width:700px; margin:auto; margin-bottom:5px; }
+
+    section { max-width:900px; margin:auto; padding:30px 15px; }
+    h2 { font-size:1.8rem; margin-bottom:10px; }
+    p { margin:10px 0; }
+    ul li { margin-bottom:8px; }
+    .card { background:white; padding:20px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.08); margin-top:18px; transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,0.12); }
+    .highlight { color: var(--algae-green); font-weight:600; }
+    .science-label { display:inline-block; font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--leaf-green); margin-bottom:12px; }
+
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:15px; margin-top:20px; }
+
+    footer { background: linear-gradient(135deg, var(--deep-ocean), var(--ocean-blue)); color:white; text-align:center; padding:40px 20px; }
+    footer a { color:#bff3de; text-decoration:none; }
+
+    /* ========== SLIDER ========== */
+    .slider { width:100%; overflow:hidden; margin:20px 0; position:relative; }
+    .slides { display:flex; transition: transform 0.5s ease; }
+    .slides img { width:100%; flex-shrink:0; object-fit:cover; height:250px; border-radius:12px; }
+
+    /* Responsive */
+    @media(max-width:768px) { .slides img{height:180px;} header h1{font-size:1.6rem;} header p{font-size:0.95rem;} }
+    @media(max-width:480px) { .slides img{height:130px;} header h1{font-size:1.3rem;} header p{font-size:0.85rem;} section{padding:20px 10px;} }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.jpeg" alt="PhycoDaily Logo">
+  <h1>PhycoDaily™</h1>
+  <p><strong>Clean Nutrition From Algae, Every Day.</strong></p>
+  <p>The Green Gold Revolution in Fresh Microalgae Nutrition</p>
+</header>
+
+<!-- Slider -->
+<div class="slider">
+  <div class="slides">
+    <img src="images/slide1.png" alt="Microalgae cultivation">
+    <img src="images/slide2.png" alt="Fresh algae nutrition">
+    <img src="images/slide3.jpeg" alt="Sustainable food future">
+  </div>
+</div>
+
+<!-- About Section -->
+<section>
+  <span class="science-label">Microalgae Nutrition Platform</span>
+  <h2>About PhycoDaily™</h2>
+  <div class="card">
+    <p>
+      PhycoDaily™ is pioneering the <span class="highlight">fresh microalgae movement</span>
+      in the UAE — delivering one of the world’s most nutrient-dense and sustainable foods
+      to cafés, restaurants and wellness brands.
+    </p>
+    <ul>
+      <li>60–70% high-quality protein</li>
+      <li>Complete amino acid profile</li>
+      <li>Natural vitamin B12</li>
+      <li>Up to <strong>3× better absorption</strong> than dried powders</li>
+      <li>Clean taste in smoothies & bowls</li>
+    </ul>
+    <div class="image-block">
+      <img src="images/algae-1.png" alt="Fresh microalgae">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🎯 Mission & 🔭 Vision</h2>
+  <div class="grid">
+    <div class="card">Make fresh microalgae everyday nutrition in the Middle East</div>
+    <div class="card">Replace resource-intensive protein sources</div>
+    <div class="card">Support UAE Food Security 2051</div>
+    <div class="card">Enable local, climate-smart production</div>
+  </div>
+</section>
+
+<section>
+  <h2>⚙️ What We’re Building</h2>
+  <div class="card">
+    <p>
+      PhycoDaily™ is currently in the <strong>validation stage</strong>,
+      working with cafés and partners in Dubai.
+    </p>
+    <ul>
+      <li>Fresh microalgae imports for trials</li>
+      <li>Frozen 10g algae shots</li>
+      <li>Functional drink recipe co-development</li>
+      <li>3–5 pilot cafés in Dubai</li>
+    </ul>
+    <div class="image-block">
+      <img src="images/algae-2.png" alt="Algae nutrition concept">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🧬 Why “Green Gold”?</h2>
+  <div class="card">
+    <ul>
+      <li>200× less land, 20× less water</li>
+      <li>No pesticides, no soil depletion</li>
+      <li>Captures CO₂ while growing</li>
+      <li>Complete, bioavailable nutrition</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>👩‍🔬 Founder</h2>
+  <div class="card">
+    <p><strong>Dr. Priyanshu Jain</strong></p>
+    <p>
+      Nanobiotechnology researcher specializing in microalgae bioprocessing,
+      marine biotechnology and functional food innovation.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>📍 Dubai, United Arab Emirates</p>
+  <p>📧 <a href="mailto:info@phycodaily.com">info@phycodaily.com</a></p>
+  <p>© PhycoDaily™</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelector('.slides');
+    const images = slides.querySelectorAll('img');
+    let index = 0;
+    const total = images.length;
+
+    slides.style.width = `${total * 100}%`;
+    images.forEach(img => img.style.width = `${100 / total}%`);
+
+    setInterval(() => {
+      index++;
+      if(index >= total) index = 0;
+      slides.style.transform = `translateX(-${index * (100 / total)}%)`;
+    }, 4000);
+  });
+</script>
+
+</body>
+</html>
