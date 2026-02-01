@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --deep-ocean: #08313a;
   --ocean-blue: #0f6f7a;
   --algae-green: #3aa76d;
@@ -20,7 +20,7 @@ body {
 }
 
 /* Header */
-header {
+/* header {
   background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
               url("../images/ocean-bg.jpeg");
   background-size: cover;
@@ -72,10 +72,10 @@ footer p { margin: 8px 0; }
 @keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
 
 /* Slider */
-.slider { width: 100%; overflow: hidden; margin-top: 20px; position: relative; }
+/*.slider { width: 100%; overflow: hidden; margin-top: 20px; position: relative; }
 .slides { display: flex; transition: transform 0.5s ease; }
-.slides img { width: 100%; flex-shrink: 0; object-fit: cover; height: 420px; }
+.slides img { width: 100%; flex-shrink: 0; object-fit: cover; height: 420px; } */
 
 /* Responsive */
-@media (max-width: 768px) { header h1{font-size:2.2rem;} header p{font-size:1rem;} .slides img{height:250px;} }
-@media (max-width: 480px) { header h1{font-size:1.8rem;} header p{font-size:0.9rem;} section{padding:32px 15px;} .grid{gap:20px;} }
+/*@media (max-width: 768px) { header h1{font-size:2.2rem;} header p{font-size:1rem;} .slides img{height:250px;} }
+@media (max-width: 480px) { header h1{font-size:1.8rem;} header p{font-size:0.9rem;} section{padding:32px 15px;} .grid{gap:20px;} } */
