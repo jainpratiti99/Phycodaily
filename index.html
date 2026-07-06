@@ -203,7 +203,7 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 /* ══════════ SHOP ══════════ */
 .shop-hero{padding:120px 0 60px;background:var(--GBG)}
 .shop-inner{display:grid;grid-template-columns:1fr 360px;gap:52px;align-items:center}
-.sec-div{padding:72px 0 0}
+.sec-div{padding-top:72px}
 .sec-label{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
 .sec-label-text{font-family:var(--serif);font-size:1.8rem;font-weight:900;color:var(--T)}
 .sec-pill{padding:4px 14px;border-radius:50px;font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;flex-shrink:0}
@@ -960,8 +960,24 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
 const enquiryForm=document.getElementById('enquiryForm');
 const enquiryMsg=document.getElementById('enquiryFormMsg');
 if(enquiryForm){
+  const emailFieldForReset=enquiryForm.querySelector('input[name="email"]');
+  if(emailFieldForReset){
+    emailFieldForReset.addEventListener('input',()=>{emailFieldForReset.style.borderColor=''});
+  }
   enquiryForm.addEventListener('submit',function(e){
     e.preventDefault();
+    const emailInput=enquiryForm.querySelector('input[name="email"]');
+    const emailPattern=/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    const emailVal=(emailInput.value||'').trim();
+    if(!emailPattern.test(emailVal)){
+      emailInput.focus();
+      emailInput.style.borderColor='var(--A)';
+      enquiryMsg.textContent="Please enter a valid email address (e.g. you@example.com).";
+      enquiryMsg.style.color='var(--A)';
+      enquiryMsg.style.display='block';
+      return;
+    }
+    emailInput.style.borderColor='';
     const submitBtn=enquiryForm.querySelector('button[type="submit"]');
     const originalBtnText=submitBtn.textContent;
     submitBtn.disabled=true;
