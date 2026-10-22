@@ -17,12 +17,12 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --G:#0BBE6B;--GD:#089250;--GL:#e0f7ec;--GBG:#f3faf6;--GBOR:rgba(11,190,107,.14);
-  --A:#C47D2A;--AD:#9e621f;--AL:#fdf0de;--ABOR:rgba(196,125,42,.18);
-  --S:#146356;--SD:#0d4a41;--SL:#e3f0ee;--SBG:#f2f8f7;--SBOR:rgba(20,99,86,.2);
-  --T:#0b1e13;--MUT:#3f5f4a;--CREAM:#faf7f2;--LINE:#e6ede8;
+  --G:#1F4B3F;--GD:#12241d;--GL:#e4eae5;--GBG:#f1efe4;--GBOR:rgba(31,75,63,.18);
+  --A:#a9812e;--AD:#876823;--AL:#f5eeda;--ABOR:rgba(169,129,46,.24);
+  --S:#8a6d3b;--SD:#6c552e;--SL:#efe6d3;--SBG:#f6f0e2;--SBOR:rgba(138,109,59,.26);
+  --T:#101c17;--MUT:#4c5b53;--CREAM:#f8f4ea;--LINE:#e4ddcd;
   --serif:'DM Serif Display',Georgia,serif;--body:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;
-  --sh:0 2px 12px rgba(0,0,0,.06);--shg:0 8px 32px rgba(11,190,107,.22);--sha:0 8px 32px rgba(196,125,42,.22);--shs:0 8px 32px rgba(20,99,86,.22);--shlg:0 12px 40px rgba(0,0,0,.1);
+  --sh:0 2px 14px rgba(16,28,23,.06);--shg:0 10px 34px rgba(31,75,63,.24);--sha:0 10px 34px rgba(169,129,46,.24);--shs:0 10px 34px rgba(138,109,59,.24);--shlg:0 14px 44px rgba(16,28,23,.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -89,45 +89,42 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 .fade{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .fade.in{opacity:1;transform:translateY(0)}
 
-/* ══════════ HERO ══════════ */
-.hero{padding:130px 0 76px;background:#fff;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(11,190,107,.07) 0%,transparent 65%);pointer-events:none}
-.hero-split{display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:center;position:relative;z-index:2}
-.hero-flag{display:inline-flex;align-items:center;gap:10px;padding:5px 14px 5px 8px;background:var(--GBG);border:1px solid var(--GBOR);border-radius:50px;font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--MUT);margin-bottom:20px}
-.hero-flag .dot{width:7px;height:7px;background:var(--G);border-radius:50%;animation:pulse 2.4s ease-in-out infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
-.hero h1{margin-bottom:18px}
-.hero h1 em{font-style:italic;color:var(--G)}
-.hero-quote{display:flex;margin:20px 0 28px;max-width:460px;border-left:3px solid var(--G);background:var(--GBG);border-radius:0 10px 10px 0;padding:14px 18px}
-.hero-quote p{font-family:var(--serif);font-style:italic;font-size:.94rem;color:var(--MUT);line-height:1.65;font-weight:600}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
-/* animated blob */
-.h-blob{width:360px;height:360px;border-radius:55% 45% 60% 40%/50% 60% 40% 55%;background:linear-gradient(135deg,#0BBE6B,#08a35c,#1dd882);display:flex;align-items:center;justify-content:center;animation:morph 8s ease-in-out infinite;box-shadow:0 20px 60px rgba(11,190,107,.22);overflow:hidden;position:relative;transition:transform .15s ease-out}
-/* ── HERO BLOB IMAGE — swap src to change ── */
-.h-blob > img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
-.h-scatter{position:absolute;inset:0;overflow:hidden}
-.h-bubble{position:absolute;width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,60,30,.14),0 0 0 1px rgba(255,255,255,.5) inset;overflow:hidden;transform:translate(-50%,-50%);animation:bubble-float 7s ease-in-out infinite}
-.h-bubble svg{width:56%;height:56%}
-.hb-millet{top:14%;left:50%;animation-delay:0s}
-.hb-spirulina{top:39%;left:84%;animation-delay:1.4s}
-.hb-carrot{top:79%;left:71%;animation-delay:2.8s}
-.hb-nuts{top:79%;left:29%;animation-delay:4.2s}
-.hb-apple{top:39%;left:16%;animation-delay:5.6s}
-@keyframes bubble-float{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-4px)}}
-@media(max-width:900px){.h-bubble{width:36px !important;height:36px !important}}
-@keyframes morph{0%,100%{border-radius:55% 45% 60% 40%/50% 60% 40% 55%}33%{border-radius:45% 55% 45% 55%/55% 45% 55% 45%}66%{border-radius:60% 40% 50% 50%/40% 60% 40% 60%}}
-.h-float{position:absolute;background:#fff;border-radius:12px;padding:9px 13px;box-shadow:0 4px 16px rgba(0,0,0,.1);font-size:.76rem;font-weight:700;display:flex;align-items:center;gap:6px;color:var(--T);font-family:var(--body);max-width:170px;line-height:1.35;transition:transform .15s ease-out;z-index:3}
-.hf1{top:10px;right:-18px}.hf2{bottom:28px;left:-24px}.hf3{top:50%;right:-26px;transform:translateY(-50%)}
+/* ══════════ HERO — redesigned: editorial, label-card signature ══════════ */
+.hero{padding:158px 0 92px;background:var(--CREAM);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start;margin-top:38px}
+.hero-headline-wrap{background:var(--G);padding:66px 0}
+.hero-band-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero-headline{font-family:var(--serif);font-size:clamp(2.6rem,4.6vw,4rem);line-height:1.08;letter-spacing:-.01em;color:#fff;margin:16px 0 22px}
+.hero-headline em{font-style:italic;color:var(--A)}
+.hero-band-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:260px}
+.hbv-illustration{width:100%;max-width:280px;height:auto;opacity:.9}
+.hero-band-lead{font-family:var(--body);font-size:1.05rem;color:rgba(255,255,255,.8);max-width:440px;margin:0;text-align:left;line-height:1.6}
+.hero-headline-wrap .hero-actions{justify-content:flex-start;margin-top:26px}
+.hero-headline-wrap .btn-g{background:#fff;color:var(--GD)}
+.hero-headline-wrap .btn-g:hover{background:var(--CREAM);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.hero-headline-wrap .btn-og{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.hero-headline-wrap .btn-og:hover{border-color:#fff;background:rgba(255,255,255,.1);color:#fff}
+.hero-below{padding:52px 0 36px}
+@media(max-width:960px){.hero-band-inner{grid-template-columns:1fr}.hero-band-visual{min-height:180px;order:-1}.hbv-illustration{max-width:180px}}
+@media(max-width:640px){.hero-headline{font-size:2.3rem}.hero-headline-wrap{padding:40px 0}}
 
-/* Prevent floating badge overhang from clipping/overlapping at narrower desktop widths, before hero-visual hides entirely at 960px */
-@media(max-width:1180px) and (min-width:961px){
-  .h-blob{width:280px;height:280px}
-  .h-float{max-width:140px;font-size:.7rem;padding:7px 10px}
-  .hf1{right:-4px}
-  .hf2{left:-4px}
-  .hf3{right:-6px}
-}
+/* FOUNDER'S NOTE — static editorial panel, now a proper framed card */
+.hero-editorial{position:relative;max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--LINE);border-radius:18px;padding:44px 48px;box-shadow:var(--sh);overflow:hidden}
+.he-illustration{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;height:320px;opacity:.07;pointer-events:none;z-index:0}
+.he-panel{position:relative;z-index:1;width:100%}
+.he-rule{width:44px;height:1px;background:var(--A);margin-bottom:22px;display:block}
+.he-label{font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--A);margin-bottom:18px;display:block}
+.he-quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2.3vw,1.7rem);line-height:1.48;color:var(--T)}
+.he-attribution{display:flex;align-items:center;gap:12px;margin-top:24px}
+.he-attribution-line{width:28px;height:1px;background:var(--LINE);flex-shrink:0}
+.he-attribution-text{font-size:.82rem;color:var(--MUT)}
+.he-attribution-text strong{color:var(--T);font-weight:700}
+@media(max-width:960px){.hero-editorial{max-width:480px;margin:0 auto;padding:34px 30px}.he-illustration{width:220px;height:220px}}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+
+/* Signature element: a printed ingredient-label card, standing in for the
+   product itself — grounded in the brand's actual clean-label promise */
+
 
 /* STATS BAR */
 .stats-bar{background:var(--G);padding:28px 0}
@@ -154,7 +151,11 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 .phil-note strong{display:block;font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:var(--G);margin-bottom:3px}
 
 /* NOT SECTION */
-.not-inner{background:#fff;border:1.5px solid var(--LINE);border-radius:20px;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.not-inner{border:1.5px solid var(--LINE);border-radius:20px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.not-inner>div{padding:44px 48px}
+.not-inner>div:first-child{background:#fbf6f2;border-right:1px solid var(--LINE)}
+.not-inner>div:last-child{background:var(--GBG)}
+@media(max-width:960px){.not-inner>div:first-child{border-right:none;border-bottom:1px solid var(--LINE)}}
 .not-col-label{font-family:var(--mono);font-size:.67rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;display:block}
 .not-col-label.red{color:#c05858}.not-col-label.green{color:var(--G)}
 .not-list{list-style:none;display:flex;flex-direction:column;gap:11px}
@@ -194,8 +195,23 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 .creds-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .cred-tag{padding:4px 11px;background:var(--GBG);border:1px solid var(--GBOR);border-radius:6px;font-size:.7rem;font-weight:700;color:var(--MUT)}
 
+/* LABS TEASER — homepage split-panel, echoes the platform's two divisions */
+.labs-teaser{background:#fff;padding:20px 0 96px}
+.lt-inner{display:grid;grid-template-columns:1.25fr 1fr;border:1.5px solid var(--LINE);border-radius:22px;overflow:hidden;box-shadow:var(--sh)}
+.lt-side{padding:44px 40px;display:flex;flex-direction:column;justify-content:center}
+.lt-side.pantry-side{background:var(--GBG);border-left:1px solid var(--LINE)}
+.lt-side.labs-side{background:var(--SBG)}
+.lt-side .lt-tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.lt-side.pantry-side .lt-tag{color:var(--G)}
+.lt-side.labs-side .lt-tag{color:var(--S)}
+.lt-side h3{font-size:1.35rem;margin-bottom:10px}
+.lt-side p{font-size:.86rem;color:var(--MUT);line-height:1.7;margin-bottom:18px}
+.lt-join{text-align:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--MUT);margin-top:16px}
+.lt-join a{color:var(--S);border-bottom:1px solid var(--SBOR)}
+@media(max-width:760px){.lt-inner{grid-template-columns:1fr}.lt-side.pantry-side{border-left:none;border-top:1px solid var(--LINE)}}
+
 /* HOME CTA */
-.home-cta{background:linear-gradient(135deg,#0BBE6B,#07a360);padding:80px 0;text-align:center}
+.home-cta{background:linear-gradient(135deg,#1F4B3F,#12241d);padding:80px 0;text-align:center}
 .hcta-inner{max-width:520px;margin:0 auto}
 .hcta-inner h2{color:#fff;margin-bottom:12px}
 .hcta-inner p{color:rgba(255,255,255,.72);font-size:.95rem;margin-bottom:28px}
@@ -216,7 +232,7 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 .prod-grid-2{grid-template-columns:repeat(2,1fr);max-width:680px}
 .prod-card{background:#fff;border:1.5px solid var(--LINE);border-radius:18px;overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s;display:flex;flex-direction:column;box-shadow:var(--sh)}
 .prod-card:hover{transform:translateY(-5px);box-shadow:var(--shlg)}
-.prod-card.green:hover{border-color:rgba(11,190,107,.3)}
+.prod-card.green:hover{border-color:var(--GBOR)}
 .prod-card.amber:hover{border-color:var(--ABOR)}
 .prod-card.signature:hover{border-color:var(--SBOR)}
 
@@ -238,7 +254,7 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
   padding:8px;
 }
 .prod-card:hover .prod-img-wrap img{transform:scale(1.04)}
-.prod-img-wrap.green-bg{background:linear-gradient(135deg,#e5f5ec,#eef9ee)}
+.prod-img-wrap.green-bg{background:linear-gradient(135deg,var(--GBG),#fff)}
 .prod-img-wrap.amber-bg{background:linear-gradient(135deg,var(--AL),#fdf5e4)}
 .prod-img-wrap.signature-bg{background:linear-gradient(135deg,var(--SL),#eef8f6)}
 .signature-feature{display:grid;grid-template-columns:0.85fr 1.15fr;gap:40px;align-items:center;background:linear-gradient(135deg,var(--SBG),#fff);border:1.5px solid var(--SBOR);border-radius:24px;padding:32px;margin-top:24px;box-shadow:var(--sh)}
@@ -248,10 +264,13 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 .signature-feature-body .prod-desc{margin-bottom:16px}
 .signature-feature-body .prod-chips{margin-bottom:20px}
 @media(max-width:780px){.signature-feature{grid-template-columns:1fr;padding:24px}}
+.signature-feature-img.ph-placeholder{background:var(--SBG);border:1.5px dashed var(--SBOR)}
+.ph-box{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--MUT);text-align:center}
+.ph-box span{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
 .prod-img-wrap.cream-bg{background:var(--CREAM,#faf7f2)}
 
 .prod-status{position:absolute;top:10px;right:10px;padding:3px 10px;border-radius:50px;font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;z-index:2}
-.ps-live{background:var(--GL);color:#089250;border:1px solid var(--GBOR)}
+.ps-live{background:var(--GL);color:var(--GD);border:1px solid var(--GBOR)}
 
 .prod-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
 .prod-name{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--T);margin-bottom:7px}
@@ -269,6 +288,10 @@ nav.scrolled{background:rgba(250,247,242,.96);backdrop-filter:blur(20px);-webkit
 .pcall-b{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.78}
 .family-note{background:var(--AL);border:1px solid var(--ABOR);border-radius:10px;padding:14px 18px;font-size:.82rem;color:var(--A);font-weight:600;margin-bottom:36px;max-width:640px}
 .b2b-bar{background:var(--GBG);border:1px solid var(--GBOR);border-radius:18px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:40px}
+.cross-pointer{background:#fff;border:1.5px dashed var(--LINE);border-radius:16px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;cursor:pointer;transition:border-color .2s ease}
+.cross-pointer:hover{border-color:var(--G)}
+.cross-pointer-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--MUT);display:block;margin-bottom:6px}
+.cross-pointer h3{font-size:1.05rem}
 .b2b-bar h3{font-size:1.25rem;font-weight:900;margin-bottom:6px}
 .b2b-bar p{font-size:.85rem;color:var(--MUT);max-width:480px}
 
@@ -343,13 +366,107 @@ footer{background:#0a1c10;padding:52px 0 26px}
 .wa-float:hover{transform:scale(1.1)}
 .wa-float svg{width:25px;height:25px;fill:#fff}
 
+/* ══════════ COMPANY & VISION (integrated page) ══════════ */
+.co-page{background:var(--CREAM)}
+.co-hero{padding:150px 0 70px;text-align:center}
+.co-hero h1{font-size:clamp(2rem,4.6vw,3.1rem);max-width:800px;margin:0 auto 20px}
+.co-hero p{font-size:1.08rem;color:var(--MUT);max-width:620px;margin:0 auto}
+.co-hero .co-stamp{margin-top:30px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--MUT)}
+.co-split-wrap{padding:16px 0 90px}
+.co-split{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--LINE);border-radius:20px;overflow:hidden;box-shadow:var(--sh)}
+.co-half{padding:48px 42px}
+.co-half.co-pantry{background:var(--GBG);border-left:1px solid var(--LINE)}
+.co-half.co-labs{background:var(--SBG)}
+.co-half .co-tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.co-half.co-pantry .co-tag{color:var(--G)}
+.co-half.co-labs .co-tag{color:var(--S)}
+.co-half h3{font-size:1.5rem;margin-bottom:10px}
+.co-half p{color:var(--MUT);font-size:.9rem;margin-bottom:18px}
+.co-half ul{list-style:none}
+.co-half li{font-size:.86rem;color:var(--T);padding:7px 0;border-top:1px solid rgba(0,0,0,.06)}
+.co-half li:first-child{border-top:none}
+.co-split-join{text-align:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--MUT);margin-top:16px}
+@media(max-width:760px){.co-split{grid-template-columns:1fr}.co-half.co-pantry{border-left:none;border-top:1px solid var(--LINE)}}
+.co-sec{padding:76px 0}
+.co-sec.co-alt{background:#fff;border-top:1px solid var(--LINE);border-bottom:1px solid var(--LINE)}
+.co-sec-head{max-width:640px;margin-bottom:40px}
+.co-sec-head p{color:var(--MUT);margin-top:12px;font-size:1rem}
+.co-now-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.co-now-card{background:var(--GBG);border:1px solid var(--GBOR);border-radius:14px;padding:24px}
+.co-now-card h4{font-family:var(--body);font-weight:700;font-size:.95rem;margin-bottom:8px}
+.co-now-card p{font-size:.86rem;color:var(--MUT)}
+@media(max-width:760px){.co-now-grid{grid-template-columns:1fr}}
+.co-founder{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+.co-founder .co-credential{background:var(--SBG);border:1px solid var(--SBOR);border-radius:16px;padding:26px}
+.co-founder .co-credential .co-name{font-family:var(--serif);font-size:1.35rem;margin-bottom:4px}
+.co-founder .co-credential .co-role{font-size:.82rem;color:var(--MUT);margin-bottom:16px}
+.co-founder .co-credential .co-stat{display:flex;justify-content:space-between;font-size:.82rem;padding:8px 0;border-top:1px solid var(--SBOR)}
+.co-founder blockquote{font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.5;color:var(--T);border-left:3px solid var(--S);padding-left:20px;margin-bottom:18px}
+.co-founder p{color:var(--MUT);font-size:.9rem}
+@media(max-width:760px){.co-founder{grid-template-columns:1fr}}
+.co-filter-list{counter-reset:q;display:grid;gap:12px;max-width:660px}
+.co-filter-item{display:flex;gap:14px;align-items:flex-start;background:var(--GBG);border-radius:12px;padding:16px 20px;font-size:.9rem}
+.co-filter-item::before{counter-increment:q;content:counter(q);font-family:var(--serif);font-size:1.2rem;color:var(--G);flex-shrink:0}
+.co-compare{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--LINE);border-radius:16px;overflow:hidden}
+.co-compare>div{padding:28px 30px}
+.co-compare .co-no{background:#fbf6f2}
+.co-compare .co-yes{background:var(--GBG)}
+.co-compare h4{font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;font-family:var(--mono);margin-bottom:14px}
+.co-compare .co-no h4{color:#a05a3a}
+.co-compare .co-yes h4{color:var(--GD)}
+.co-compare ul{list-style:none;font-size:.88rem}
+.co-compare li{padding:5px 0;color:var(--MUT)}
+@media(max-width:640px){.co-compare{grid-template-columns:1fr}}
+.co-position{text-align:center;padding:84px 0;background:var(--T);color:#fff}
+.co-position .co-not{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,.5);margin-bottom:6px}
+.co-position h2{color:#fff;font-size:clamp(1.5rem,3.6vw,2.2rem);max-width:760px;margin:20px auto 0}
+.co-position .co-aside{max-width:580px;margin:22px auto 0;color:rgba(255,255,255,.65);font-size:.92rem}
+
+/* ══════════ SITEWIDE THEME — forest green + brass/ivory (see :root) ══════════
+   Pantry gets its own accent instead: warm ochre, kept visually distinct
+   from Labs/Home/About/Contact's forest green so the two divisions read
+   as genuinely different, not just relabeled. */
+#page-home .home-cta{background:linear-gradient(135deg,#1F4B3F,#12241d)}
+
+#page-pantry{
+  --G:#B8792E;--GD:#8f5c22;--GL:#f2e6d2;--GBG:#faf3e8;--GBOR:rgba(184,121,46,.22);
+  --A:#a45c3f;--AD:#823f27;--AL:#f5e4dc;--ABOR:rgba(164,92,63,.24);
+  --shg:0 10px 34px rgba(184,121,46,.26);--sha:0 10px 34px rgba(164,92,63,.26);
+}
+nav.nav-pantry{--G:#B8792E;--GD:#8f5c22;--GL:#f2e6d2;--A:#a45c3f;--AL:#f5e4dc;--ABOR:rgba(164,92,63,.24)}
+
+/* ══════════ INTERACTIVE / MOTION LAYER ══════════ */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--G),var(--A));width:0%;z-index:999;transition:width .1s linear}
+
+.btn{position:relative;overflow:hidden;transition:background .18s,color .18s,transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s}
+.btn:hover{transform:translateY(-3px) scale(1.035)}
+.btn:active{transform:translateY(-1px) scale(.98)}
+
+.nav-lnk{position:relative}
+.nav-lnk::after{content:'';position:absolute;left:13px;right:13px;bottom:3px;height:2px;background:var(--G);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav-lnk:hover::after{transform:scaleX(1)}
+.nav-lnk.active-g::after,.nav-lnk.active-a::after{transform:scaleX(0)}
+
+.tilt-card{transition:transform .12s ease-out,box-shadow .25s ease}
+
+.hero-band-visual svg path,.hero-band-visual svg ellipse{stroke-dasharray:400;stroke-dashoffset:400;animation:draw-in 2.2s ease forwards}
+.hero-band-visual svg circle{opacity:0;animation:fade-in-dot 1s ease forwards;animation-delay:1.8s}
+@keyframes draw-in{to{stroke-dashoffset:0}}
+@keyframes fade-in-dot{to{opacity:1}}
+
+.spotlight{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.08),transparent 70%)}
+.hero-headline-wrap:hover .spotlight{opacity:1}
+
+@media(prefers-reduced-motion:reduce){
+  .btn,.btn:hover,.btn:active,.tilt-card{transition:none;transform:none!important}
+  .hero-band-visual svg path,.hero-band-visual svg ellipse,.hero-band-visual svg circle{animation:none;stroke-dashoffset:0;opacity:1}
+  .nav-lnk::after{transition:none}
+  .page-transitioning{transition:none!important}
+}
+
 /* RESPONSIVE */
 @media(max-width:960px){
-  .hero-split,.shop-inner,.story-grid,.contact-grid,.fs-inner,.founder-grid{grid-template-columns:1fr;gap:32px}
-  .hero-visual{display:flex !important;flex-direction:column;align-items:center;gap:12px;position:static;margin-top:8px}
-  .h-blob{width:220px;height:220px}
-  .h-bubble{width:36px !important;height:36px !important}
-  .h-float{position:static;transform:none !important;max-width:none;width:100%;justify-content:center;text-align:left}
+  .hero-grid,.shop-inner,.story-grid,.contact-grid,.fs-inner,.founder-grid{grid-template-columns:1fr;gap:32px}
   .sg{grid-template-columns:repeat(2,1fr)}
   .si:nth-child(2){border-right:none}
   .si:nth-child(3),.si:nth-child(4){border-top:1px solid rgba(255,255,255,.18)}
@@ -375,14 +492,11 @@ footer{background:#0a1c10;padding:52px 0 26px}
   .hero h1{font-size:2.4rem}
   .prod-grid{grid-template-columns:1fr}
   .millet-grid,.approach-grid{grid-template-columns:1fr}
-
-  /* Further shrink for phone widths — layout/positioning already set at 960px breakpoint */
-  .h-blob{width:190px;height:190px}
-  .h-bubble{width:34px !important;height:34px !important}
 }
 </style>
 </head>
 <body>
+<div id="scrollProgress"></div>
 
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
@@ -393,8 +507,8 @@ footer{background:#0a1c10;padding:52px 0 26px}
     </div>
     <ul class="nav-links" id="navLinks">
       <li><span class="nav-lnk" data-page="">Home</span></li>
-      <li><span class="nav-lnk nav-pill" data-page="shop">🛒 Shop</span></li>
-      <li><span class="nav-lnk" data-page="science">Science</span></li>
+      <li><span class="nav-lnk nav-pill" data-page="labs" title="Spirulina & Science">🔬 Labs</span></li>
+      <li><span class="nav-lnk" data-page="pantry" title="Everyday Foods">Pantry</span></li>
       <li><span class="nav-lnk" data-page="about">About</span></li>
       <li><span class="nav-lnk" data-page="contact">Contact</span></li>
       <li><a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20from%20PhycoDaily%20Pantry" class="nav-lnk nav-cta">Order Now</a></li>
@@ -409,35 +523,47 @@ footer{background:#0a1c10;padding:52px 0 26px}
 <div class="page active" id="page-home">
 
   <section class="hero">
-    <div class="container">
-      <div class="hero-split">
+    <div class="hero-headline-wrap fade" style="position:relative" id="heroBand">
+      <div class="spotlight"></div>
+      <div class="container hero-band-inner">
         <div>
-          <div class="hero-flag"><span class="dot"></span>Scientist-curated · Clean-label · Family nutrition</div>
-          <h1 class="display fade">Nutrition built<br>through <em>real food.</em></h1>
-          <p class="lead fade" style="transition-delay:.07s;max-width:460px">Millet-based breakfast mixes and natural nutrition blends — designed to work <em>alongside</em> real family meals, not replace them.</p>
-          <div class="hero-quote fade" style="transition-delay:.12s">
-            <p>"Nutrition is built through meals, not through a single scoop."</p>
-          </div>
-          <div class="hero-actions fade" style="transition-delay:.17s">
-            <span onclick="goTo('shop')" class="btn btn-g" style="cursor:pointer">Browse Products</span>
-            <span onclick="goTo('about')" class="btn btn-og" style="cursor:pointer">Our Philosophy →</span>
+          <span class="eyebrow amber">Scientist-curated · Clean-label · Family nutrition</span>
+          <h1 class="hero-headline">Nutrition built through <em>real food.</em></h1>
+          <p class="hero-band-lead fade" style="transition-delay:.07s">Two focused divisions, one scientist-led standard — functional spirulina science, and clean-label foods for everyday family meals.</p>
+          <div class="hero-actions fade" style="transition-delay:.12s">
+            <span onclick="goTo('labs')" class="btn btn-g" style="cursor:pointer">Explore Labs →</span>
+            <span onclick="goTo('about')" class="btn btn-og" style="cursor:pointer">Our Philosophy</span>
           </div>
         </div>
-        <div class="hero-visual fade" style="transition-delay:.22s" id="heroVisual">
-          <!-- HERO BLOB: shows the Dosa Mix pack in the animated blob -->
-          <!-- IMG: Hero blob — swap src to change the hero product image -->
-          <div class="h-blob" id="heroBlob">
-            <div class="h-scatter">
-              <div class="h-bubble hb-millet"><svg viewBox="0 0 24 24" fill="none" stroke="var(--G)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M12 6c-1.6 0-3 1-3 2.8S10.4 11.6 12 11.6"/><path d="M12 6c1.6 0 3 1 3 2.8S13.6 11.6 12 11.6"/><path d="M12 11.8c-1.6 0-3 1-3 2.8s1.4 2.8 3 2.8"/><path d="M12 11.8c1.6 0 3 1 3 2.8s-1.4 2.8-3 2.8"/></svg></div>
-              <div class="h-bubble hb-spirulina"><svg viewBox="0 0 24 24" fill="none" stroke="var(--G)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5a7.5 3.6 0 0 0 15 0"/><path d="M4.5 12.5h15"/><path d="M9.3 12.3c0-2 1.2-3 2.7-3s2.7 1 2.7 3"/><path d="M12 6.4c.7-.9 1-1.4.8-2.4"/></svg></div>
-              <div class="h-bubble hb-carrot"><svg viewBox="0 0 24 24" fill="none" stroke="var(--G)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8.4c2.6 0 4.3 3.4 2.6 8.6-.9 2.6-2.6 3.6-2.6 3.6s-1.7-1-2.6-3.6C7.7 11.8 9.4 8.4 12 8.4z"/><path d="M12 8.4V3.6"/><path d="M9.3 6l1.6 1.8"/><path d="M14.7 6l-1.6 1.8"/></svg></div>
-              <div class="h-bubble hb-nuts"><svg viewBox="0 0 24 24" fill="none" stroke="var(--G)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8.6" cy="14.3" rx="3.4" ry="4.3" transform="rotate(-18 8.6 14.3)"/><ellipse cx="14.8" cy="13.6" rx="3" ry="3.9" transform="rotate(14 14.8 13.6)"/><circle cx="12" cy="7.2" r="2.1"/></svg></div>
-              <div class="h-bubble hb-apple"><svg viewBox="0 0 24 24" fill="none" stroke="var(--G)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.6c-2.6-2.7-6.2-.9-6.2 2.6 0 4.3 3.4 8 6.2 8s6.2-3.7 6.2-8c0-3.5-3.6-5.3-6.2-2.6z"/><path d="M12 7.6V4.4"/><path d="M12 5.4c.9-.9 1.7-.8 2.5-.3"/></svg></div>
-            </div>
-          </div>
-          <div class="h-float hf1" id="heroFloat1" style="color:var(--G)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M4 11h16a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7Z"/><line x1="9" y1="4" x2="9" y2="7"/><line x1="13" y1="3" x2="13" y2="7"/></svg><span style="color:var(--T)">Real food, every morning</span></div>
-          <div class="h-float hf2" id="heroFloat2" style="color:#B34A3C"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="flex-shrink:0"><circle cx="12" cy="12" r="8"/><line x1="6.3" y1="6.3" x2="17.7" y2="17.7"/></svg><span style="color:var(--T)">No powders replacing meals</span></div>
-          <div class="h-float hf3" id="heroFloat3" style="color:var(--S)"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3"/><path d="M7.5 15h9"/></svg><span style="color:var(--T)">Scientist-curated</span></div>
+        <div class="hero-band-visual">
+          <svg class="hbv-illustration" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M110 205 C108 160 100 140 80 120 C60 100 55 70 70 38" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M110 205 C112 150 125 130 145 105 C165 80 168 53 150 28" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M110 205 C110 155 110 120 110 90 C110 58 118 38 135 20" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linecap="round"/>
+            <ellipse cx="70" cy="38" rx="9" ry="4.5" transform="rotate(-40 70 38)" stroke="var(--A)" stroke-width="1.2"/>
+            <ellipse cx="150" cy="28" rx="9" ry="4.5" transform="rotate(30 150 28)" stroke="var(--A)" stroke-width="1.2"/>
+            <circle cx="135" cy="20" r="4.5" stroke="var(--A)" stroke-width="1.2"/>
+            <circle cx="110" cy="205" r="3.5" fill="var(--A)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="container hero-below">
+      <div class="hero-editorial tilt-card fade" style="transition-delay:.18s">
+        <svg class="he-illustration" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M110 200 C108 160 100 140 80 120 C60 100 55 70 70 40" stroke="var(--G)" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M110 200 C112 150 125 130 145 105 C165 80 168 55 150 30" stroke="var(--G)" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M110 200 C110 155 110 120 110 90 C110 60 118 40 135 22" stroke="var(--G)" stroke-width="1.1" stroke-linecap="round"/>
+          <ellipse cx="70" cy="40" rx="8" ry="4" transform="rotate(-40 70 40)" stroke="var(--G)" stroke-width="1"/>
+          <ellipse cx="150" cy="30" rx="8" ry="4" transform="rotate(30 150 30)" stroke="var(--G)" stroke-width="1"/>
+          <circle cx="135" cy="22" r="4" stroke="var(--G)" stroke-width="1"/>
+          <circle cx="110" cy="200" r="3" fill="var(--G)"/>
+        </svg>
+        <div class="he-panel">
+          <span class="he-rule"></span>
+          <span class="he-label">Founder's Note</span>
+          <p class="he-quote">"We didn't set out to build another supplement brand. We set out to build the standard we'd want for our own family's table."</p>
+          <div class="he-attribution"><span class="he-attribution-line"></span><span class="he-attribution-text"><strong>Dr. Priyanshu Jain</strong> — Founder, PhycoDaily</span></div>
         </div>
       </div>
     </div>
@@ -446,9 +572,9 @@ footer{background:#0a1c10;padding:52px 0 26px}
   <div class="stats-bar">
     <div class="container">
       <div class="sg">
-        <div class="si fade"><div class="sn">100%</div><div class="sl">Natural ingredients, always</div></div>
+        <div class="si fade"><div class="sn" data-count="100" data-suffix="%">0%</div><div class="sl">Natural ingredients, always</div></div>
         <div class="si fade" style="transition-delay:.07s"><div class="sn">Zero</div><div class="sl">Preservatives or additives</div></div>
-        <div class="si fade" style="transition-delay:.14s"><div class="sn">6+</div><div class="sl">Ancient grains in our mixes</div></div>
+        <div class="si fade" style="transition-delay:.14s"><div class="sn" data-count="2">0</div><div class="sl">Focus areas — Labs &amp; Pantry</div></div>
         <div class="si fade" style="transition-delay:.21s"><div class="sn">Clean</div><div class="sl">Label — every ingredient listed</div></div>
       </div>
     </div>
@@ -464,81 +590,28 @@ footer{background:#0a1c10;padding:52px 0 26px}
     </div>
   </div>
 
-  <section style="background:#fff;padding:96px 0">
+  <div class="labs-teaser">
     <div class="container">
-      <div class="phil-grid">
-        <div class="phil-card fade">
-          <span class="phil-icon">🥣</span>
-          <h3>The PhycoDaily Pantry Approach</h3>
-          <p>Our millet-based breakfast mixes and natural milk blends are designed to work alongside real foods. Customise with milk, curd, vegetables, paneer, tofu, nuts, seeds — whatever your family prefers.</p>
-          <div class="phil-note"><strong>Important distinction</strong>Fortified supplements have their place in specific clinical situations. Our focus is different: building everyday nutrition habits through diverse, wholesome real foods.</div>
+      <div style="text-align:center;max-width:520px;margin:0 auto 32px" class="fade">
+        <span class="eyebrow signature">Find what you need</span>
+        <h2 class="h2">Two divisions. One standard.</h2>
+      </div>
+      <div class="lt-inner fade" style="transition-delay:.08s">
+        <div class="lt-side labs-side" onclick="goTo('labs')" style="cursor:pointer">
+          <div class="lt-tag">🔬 PhycoDaily Labs</div>
+          <h3>Looking for spirulina, functional ingredients, or wholesale supply?</h3>
+          <p>Our science and formulation arm — spirulina products, café &amp; B2B supply, and the research behind what's next.</p>
+          <span class="btn btn-g btn-sm" style="margin-top:6px">Explore Labs →</span>
         </div>
-        <div class="fade" style="transition-delay:.12s">
-          <span class="eyebrow">Why We Exist</span>
-          <h2 class="h2" style="margin-bottom:18px">The gap between science and the family kitchen</h2>
-          <p class="lead" style="margin-bottom:16px">As a scientist and mother, our founder struggled to find practical, genuinely clean-label nutrition that fits into daily family life.</p>
-          <p class="body-sm" style="margin-bottom:26px">Most products were heavily processed, loaded with refined sugar, or too complicated to use consistently. PhycoDaily Pantry was created to close that gap — curating and developing better alternatives for modern Indian families.</p>
-          <span onclick="goTo('about')" class="btn btn-og" style="cursor:pointer">Read our story →</span>
+        <div class="lt-side pantry-side" onclick="goTo('pantry')" style="cursor:pointer">
+          <div class="lt-tag">🥣 PhycoDaily Pantry</div>
+          <h3>Looking for everyday breakfast mixes and treats?</h3>
+          <p>Clean-label foods built for real family kitchens, sold direct to Indian households today.</p>
+          <span class="btn btn-og btn-sm" style="margin-top:6px">Explore Pantry →</span>
         </div>
       </div>
     </div>
-  </section>
-
-  <section style="background:var(--CREAM);padding:80px 0">
-    <div class="container">
-      <div style="text-align:center;max-width:480px;margin:0 auto 40px" class="fade">
-        <span class="eyebrow">Honest Positioning</span>
-        <h2 class="h2">What we are — and are not</h2>
-      </div>
-      <div class="not-inner fade" style="transition-delay:.1s">
-        <div><span class="not-col-label red">What we are not</span><ul class="not-list no"><li>A health drink claiming to boost immunity or brain function</li><li>A fortified powder to replace a balanced meal</li><li>Making therapeutic claims we cannot substantiate</li><li>Positioned as a substitute for mainstream malt-based drink powders</li><li>Hiding sugar or additives behind a "natural" label</li></ul></div>
-        <div><span class="not-col-label green">What we are</span><ul class="not-list yes"><li>Clean-label breakfast mixes from ancient grains and millets</li><li>Natural fruit and nut-based drink mixes for the whole family</li><li>Scientist-curated alternatives families can customise daily</li><li>Honest nutrition education alongside every product</li><li>Every ingredient listed — exactly what it says on the label</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:var(--GBG);padding:96px 0">
-    <div class="container">
-      <div class="fade" style="text-align:center;max-width:500px;margin:0 auto">
-        <span class="eyebrow">Our Products</span>
-        <h2 class="h2">Two ranges. One superfood.</h2>
-        <p class="body-sm" style="margin-top:12px">Clean-label, free from artificial additives, designed to complement a real-food diet.</p>
-      </div>
-      <div class="cat-row">
-        <div class="cat-card fade" style="transition-delay:.1s" onclick="goTo('shop')">
-          <div class="cat-head green"><span class="cat-emoji">🌾</span><span class="cat-badge green">★ Flagship</span><h3>Better Breakfasts</h3><p>Millet-based breakfast mixes. No maida, no preservatives — a smarter start to every morning.</p></div>
-          <div class="cat-body"><div class="cat-products"><div class="cat-prod-item green">Multi Millet Dosa Mix</div><div class="cat-prod-item green">Foxtail Millet Idli Mix</div></div><span class="btn btn-g btn-sm">Shop Breakfast Mixes →</span></div>
-        </div>
-        <div class="cat-card fade" style="transition-delay:.18s" onclick="goTo('shop')">
-          <div class="cat-head amber"><span class="cat-emoji">🥛</span><span class="cat-badge amber">Everyday Treats</span><h3>Naturally Sweetened Drink Mixes</h3><p>Natural fruit and nut drink mixes. A clean alternative to sugary commercial drink powders. A treat, not a meal replacement.</p></div>
-          <div class="cat-body"><div class="cat-products"><div class="cat-prod-item amber">ABC Date Mix (Apple · Beetroot · Carrot · Dates)</div><div class="cat-prod-item amber">Nuts Choco Mix</div><div class="cat-prod-item amber">Banana Mix</div><div class="cat-prod-item amber">Dates Choco Mix</div></div><span class="btn btn-a btn-sm">Shop Nutrition Blends →</span></div>
-        </div>
-      </div>
-      <div class="cat-spotlight fade" style="transition-delay:.26s" onclick="goTo('shop')">
-        <div class="cat-spotlight-text"><strong>🌿 Superfoods — Premium Mixed Fruit Spirulina Powder</strong><span>The ingredient PhycoDaily is named for — a science-backed superfood ingredient.</span></div>
-        <span class="btn btn-s btn-sm">Discover Spirulina →</span>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#fff;padding:88px 0">
-    <div class="container">
-      <div class="fs-inner">
-        <div class="fade">
-          <!-- FOUNDER PHOTO (home page) — swap src to change -->
-          <div class="fs-photo"><img src="images/founder-priyanshu-jain.png" alt="Dr. Priyanshu Jain, Founder PhycoDaily Pantry"></div>
-        </div>
-        <div class="fade" style="transition-delay:.1s">
-          <span class="eyebrow">The Founder</span>
-          <p class="fs-role">PhD Nanobiotechnology · Microalgae Bioprocessing · Deakin University</p>
-          <h2 class="fs-name">Dr. Priyanshu Jain</h2>
-          <blockquote class="fs-quote">"As a mother and scientist, I struggled to find genuinely clean-label, practical nutrition options that could fit into everyday life. PhycoDaily was created to bridge the gap between nutritional science and daily habits."</blockquote>
-          <p class="fs-body">Built on one operating principle: if I wouldn't feed it to my own child, it doesn't go on the shelf.</p>
-          <div class="creds-row"><span class="cred-tag">PhD Nanobiotechnology</span><span class="cred-tag">Deakin University, AUS</span><span class="cred-tag">8+ Years Research</span><span class="cred-tag">5 Publications</span><span class="cred-tag">h-index 5</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <div class="home-cta">
     <div class="container"><div class="hcta-inner fade">
@@ -547,7 +620,7 @@ footer{background:#0a1c10;padding:52px 0 26px}
       <p>Order directly via WhatsApp or explore the full range. Questions about ingredients or suitability — just ask.</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
         <a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20from%20PhycoDaily%20Pantry" class="btn btn-wh"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order on WhatsApp</a>
-        <span onclick="goTo('shop')" class="btn btn-og" style="cursor:pointer;color:#fff;border-color:rgba(255,255,255,.3)">View All Products</span>
+        <span onclick="goTo('pantry')" class="btn btn-og" style="cursor:pointer;color:#fff;border-color:rgba(255,255,255,.3)">View All Products</span>
       </div>
     </div></div>
   </div>
@@ -557,15 +630,15 @@ footer{background:#0a1c10;padding:52px 0 26px}
 <!-- ════════════════════════════════
      SHOP
 ════════════════════════════════ -->
-<div class="page" id="page-shop">
+<div class="page" id="page-pantry">
 
   <section class="shop-hero">
     <div class="container">
       <div class="shop-inner">
         <div>
-          <span class="eyebrow fade">Our Products</span>
-          <h1 class="h2 fade" style="transition-delay:.07s;margin-bottom:16px">Clean-label nutrition<br>for everyday family life.</h1>
-          <p class="lead fade" style="transition-delay:.12s;max-width:440px">Free from artificial additives. Designed to work alongside real-food meals — not replace them.</p>
+          <span class="eyebrow fade">PhycoDaily Pantry</span>
+          <h1 class="h2 fade" style="transition-delay:.07s;margin-bottom:16px">Everyday foods for<br>real family mornings.</h1>
+          <p class="lead fade" style="transition-delay:.12s;max-width:440px">Clean-label breakfast mixes and drink blends. Free from artificial additives — designed to work alongside real-food meals, not replace them.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px" class="fade">
             <a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20from%20PhycoDaily%20Pantry" class="btn btn-g"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order via WhatsApp</a>
             <a href="https://wa.me/971581081055?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products" class="btn btn-og">Ask a Question</a>
@@ -591,18 +664,18 @@ footer{background:#0a1c10;padding:52px 0 26px}
   <!-- ★ BETTER BREAKFASTS -->
   <div class="container sec-div">
     <div class="sec-label fade"><h2 class="sec-label-text">Better Breakfasts</h2><span class="sec-pill flagship">★ Flagship</span></div>
-    <p class="body-sm fade" style="max-width:560px;margin-bottom:38px;transition-delay:.07s">Millet-based breakfast mixes from ancient, nutrient-dense grains. High in fibre, free from maida and refined flour. Quick prep, real results.</p>
+    <p class="body-sm fade" style="max-width:560px;margin-bottom:38px;transition-delay:.07s">Breakfast mixes from wholesome traditional grains. High in fibre, free from maida and refined flour. Quick prep, real results.</p>
     <div class="prod-grid prod-grid-2" style="max-width:680px">
 
       <!-- IMG: Multi Millet Dosa Mix — swap src below to update product image -->
-      <div class="prod-card green fade" style="transition-delay:.1s">
+      <div class="prod-card tilt-card green fade" style="transition-delay:.1s">
         <div class="prod-img-wrap green-bg">
           <img src="images/product-multi-millet-dosa-mix.jpg" alt="Multi Millet Dosa Mix — PhycoDaily Pantry" style="object-position:center">
           <span class="prod-status ps-live">Available</span>
         </div>
         <div class="prod-body">
           <h3 class="prod-name">Multi Millet Dosa Mix</h3>
-          <p class="prod-desc">Made with 7 traditional ingredients — foxtail millet, jowar, little millet, rice flakes, chana dal, black gram and fenugreek seeds. Crispy dosas in minutes. Just add water and cook.</p>
+          <p class="prod-desc">Made with seven traditional grains and pulses. Crispy dosas in minutes — just add water and cook.</p>
           <div class="prod-chips"><span class="chip">🌾 7 Traditional Grains</span><span class="chip">🚫 No Maida</span><span class="chip">⚡ High Fibre</span><span class="chip">🌱 Vegan</span><span class="chip">🚫 No Preservatives</span></div>
           <div class="prod-footer">
             <span class="prod-price-lbl">200g · Order via WhatsApp</span>
@@ -612,15 +685,15 @@ footer{background:#0a1c10;padding:52px 0 26px}
       </div>
 
       <!-- IMG: Foxtail Millet Idli Mix — swap src below to update product image -->
-      <div class="prod-card green fade" style="transition-delay:.18s">
+      <div class="prod-card tilt-card green fade" style="transition-delay:.18s">
         <div class="prod-img-wrap green-bg">
           <img src="images/product-foxtail-millet-idli-mix.jpg" alt="Foxtail Millet Idli Mix — PhycoDaily Pantry">
           <span class="prod-status ps-live">Available</span>
         </div>
         <div class="prod-body">
           <h3 class="prod-name">Foxtail Millet Idli Mix</h3>
-          <p class="prod-desc">Made with wholesome foxtail millet — naturally gluten-free, rich in fibre. Soft, fluffy idlis. Just add water and steam. No artificial colours or flavours.</p>
-          <div class="prod-chips"><span class="chip">🌾 Foxtail Millet</span><span class="chip">🌾 Gluten-Free</span><span class="chip">🌱 Plant-Based</span><span class="chip">🚫 No Preservatives</span><span class="chip">🎨 No Artificial Colours</span></div>
+          <p class="prod-desc">Naturally gluten-free, rich in fibre. Soft, fluffy idlis — just add water and steam. No artificial colours or flavours.</p>
+          <div class="prod-chips"><span class="chip">🌾 Gluten-Free</span><span class="chip">🌱 Plant-Based</span><span class="chip">🚫 No Preservatives</span><span class="chip">🎨 No Artificial Colours</span></div>
           <div class="prod-footer">
             <span class="prod-price-lbl">200g · Order via WhatsApp</span>
             <a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20Foxtail%20Millet%20Idli%20Mix" class="btn btn-wa btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order</a>
@@ -631,7 +704,7 @@ footer{background:#0a1c10;padding:52px 0 26px}
     </div>
 
     <div class="phil-callout fade">
-      <p class="pcall-q">"Our millet-based breakfast mixes are designed to work alongside real foods. Add vegetables, paneer, tofu, eggs — the mix is the foundation, not the meal."</p>
+      <p class="pcall-q">"Our breakfast mixes are designed to work alongside real foods. Add vegetables, paneer, tofu — the mix is the foundation, not the meal."</p>
       <p class="pcall-b">We believe children benefit most when nutrition comes from diverse real-food meals. Our products encourage variety and wholesome eating habits across the whole family.</p>
     </div>
   </div>
@@ -641,13 +714,13 @@ footer{background:#0a1c10;padding:52px 0 26px}
   <!-- FAMILY NUTRITION -->
   <div class="container sec-div">
     <div class="sec-label fade"><h2 class="sec-label-text">Everyday Treats</h2><span class="sec-pill family">Supporting Range</span></div>
-    <p class="body-sm fade" style="max-width:600px;margin-bottom:10px;transition-delay:.07s">Naturally sweetened fruit & nut drink mixes — a clean alternative to sugary commercial drink powders. A treat, not a meal replacement.</p>
+    <p class="body-sm fade" style="max-width:600px;margin-bottom:10px;transition-delay:.07s">Naturally sweetened fruit &amp; nut drink mixes — a clean alternative to sugary commercial drink powders. A treat, not a meal replacement.</p>
     <div class="family-note fade" style="transition-delay:.1s">⚠️ A treat mix, not a medical nutrition product or fortified supplement. Enjoy alongside a balanced, varied diet.</div>
 
     <div class="prod-grid">
 
       <!-- IMG: ABC Mix — swap src below to update product image -->
-      <div class="prod-card amber fade" style="transition-delay:.1s">
+      <div class="prod-card tilt-card amber fade" style="transition-delay:.1s">
         <div class="prod-img-wrap amber-bg">
           <img src="images/product-abc-date-mix.jpg" alt="ABC Date Mix — Apple Beetroot Carrot Dates — PhycoDaily">
           <span class="prod-status ps-live">Available</span>
@@ -655,13 +728,13 @@ footer{background:#0a1c10;padding:52px 0 26px}
         <div class="prod-body">
           <h3 class="prod-name">ABC Date Mix</h3>
           <p class="prod-desc">Apple, Beetroot, Carrot and Dates with the goodness of Makhana, Almond, Pistachio, Cashew and Walnut. Sweetened only by nature — zero added sugar. No artificial colours. Gluten-free, vegan, rich in fibre and iron.</p>
-          <div class="prod-chips"><span class="chip a">🍎 Real Fruit & Dates</span><span class="chip a">🥜 Dry Fruits & Makhana</span><span class="chip a">🚫 No Added Sugar</span><span class="chip a">🌿 Gluten-Free</span></div>
+          <div class="prod-chips"><span class="chip a">🍎 Real Fruit &amp; Dates</span><span class="chip a">🥜 Dry Fruits &amp; Makhana</span><span class="chip a">🚫 No Added Sugar</span><span class="chip a">🌿 Gluten-Free</span></div>
           <div class="prod-footer"><span class="prod-price-lbl">200g · Order via WhatsApp</span><a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20ABC%20Date%20Mix" class="btn btn-a btn-sm">Order</a></div>
         </div>
       </div>
 
       <!-- IMG: Nuts Choco Mix — swap src below to update product image -->
-      <div class="prod-card amber fade" style="transition-delay:.18s">
+      <div class="prod-card tilt-card amber fade" style="transition-delay:.18s">
         <div class="prod-img-wrap amber-bg">
           <img src="images/product-nuts-choco-mix.jpg" alt="Nuts Choco Mix — PhycoDaily">
           <span class="prod-status ps-live">Available</span>
@@ -669,13 +742,13 @@ footer{background:#0a1c10;padding:52px 0 26px}
         <div class="prod-body">
           <h3 class="prod-name">Nuts Choco Mix</h3>
           <p class="prod-desc">With the goodness of Palm Candy, Makhana, Almond, Cashew, Pistachio and Walnut. No refined sugar, natural ingredients, gluten-free. A better alternative to commercial chocolate drink powders.</p>
-          <div class="prod-chips"><span class="chip a">🥜 Makhana & Nuts</span><span class="chip a">🌿 Palm Candy</span><span class="chip a">🚫 No Refined Sugar</span><span class="chip a">🌾 Gluten-Free</span></div>
+          <div class="prod-chips"><span class="chip a">🥜 Makhana &amp; Nuts</span><span class="chip a">🌿 Palm Candy</span><span class="chip a">🚫 No Refined Sugar</span><span class="chip a">🌾 Gluten-Free</span></div>
           <div class="prod-footer"><span class="prod-price-lbl">200g · Order via WhatsApp</span><a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20Nuts%20Choco%20Mix" class="btn btn-a btn-sm">Order</a></div>
         </div>
       </div>
 
       <!-- IMG: Banana Mix — swap src below to update product image -->
-      <div class="prod-card amber fade" style="transition-delay:.26s">
+      <div class="prod-card tilt-card amber fade" style="transition-delay:.26s">
         <div class="prod-img-wrap amber-bg">
           <img src="images/product-banana-mix.jpg" alt="Banana Mix — PhycoDaily">
           <span class="prod-status ps-live">Available</span>
@@ -683,13 +756,13 @@ footer{background:#0a1c10;padding:52px 0 26px}
         <div class="prod-body">
           <h3 class="prod-name">Banana Mix</h3>
           <p class="prod-desc">With the goodness of Makhana, Almond, Cashew, Pistachio, Banana and Date. Sweetened only by nature — no added sugar. Naturally rich in calcium. A wholesome daily drink mix for the whole family.</p>
-          <div class="prod-chips"><span class="chip a">🍌 Banana & Date</span><span class="chip a">🥜 Nuts & Makhana</span><span class="chip a">🚫 No Added Sugar</span><span class="chip a">🦴 Rich in Calcium</span></div>
+          <div class="prod-chips"><span class="chip a">🍌 Banana &amp; Date</span><span class="chip a">🥜 Nuts &amp; Makhana</span><span class="chip a">🚫 No Added Sugar</span><span class="chip a">🦴 Rich in Calcium</span></div>
           <div class="prod-footer"><span class="prod-price-lbl">200g · Order via WhatsApp</span><a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20Banana%20Mix" class="btn btn-a btn-sm">Order</a></div>
         </div>
       </div>
 
       <!-- IMG: Dates Choco Mix — swap src below to update product image -->
-      <div class="prod-card amber fade" style="transition-delay:.34s">
+      <div class="prod-card tilt-card amber fade" style="transition-delay:.34s">
         <div class="prod-img-wrap amber-bg">
           <img src="images/product-dates-choco-mix.jpg" alt="Dates Choco Mix — PhycoDaily">
           <span class="prod-status ps-live">Available</span>
@@ -697,20 +770,64 @@ footer{background:#0a1c10;padding:52px 0 26px}
         <div class="prod-body">
           <h3 class="prod-name">Dates Choco Mix</h3>
           <p class="prod-desc">With the goodness of Dates, Makhana, Almond, Cashew, Pistachio and Walnut. Sweetened only by nature — no added sugar. Rich in iron. Natural chocolate flavour from real cocoa — not artificial flavouring.</p>
-          <div class="prod-chips"><span class="chip a">🌴 Dates & Makhana</span><span class="chip a">🥜 Mixed Nuts</span><span class="chip a">🚫 No Added Sugar</span><span class="chip a">🩸 Rich in Iron</span></div>
+          <div class="prod-chips"><span class="chip a">🌴 Dates &amp; Makhana</span><span class="chip a">🥜 Mixed Nuts</span><span class="chip a">🚫 No Added Sugar</span><span class="chip a">🩸 Rich in Iron</span></div>
           <div class="prod-footer"><span class="prod-price-lbl">200g · Order via WhatsApp</span><a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20Dates%20Choco%20Mix" class="btn btn-a btn-sm">Order</a></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- OUR SIGNATURE -->
-  <div class="container sec-div" style="padding-bottom:88px">
-    <div class="sec-label fade"><h2 class="sec-label-text">Superfoods</h2><span class="sec-pill signature">🌿 Superfoods</span></div>
+  <!-- CROSS-POINTER TO LABS -->
+  <div class="container" style="padding-bottom:80px">
+    <div class="cross-pointer fade" onclick="goTo('labs')">
+      <div><span class="cross-pointer-tag">🔬 Also looking for something else?</span><h3>Spirulina products and wholesale supply are in Labs</h3></div>
+      <span class="btn btn-og btn-sm">Go to Labs →</span>
+    </div>
+  </div>
+
+</div><!-- /pantry -->
+
+<!-- ════════════════════════════════
+     LABS
+════════════════════════════════ -->
+<div class="page" id="page-labs">
+
+  <section class="shop-hero">
+    <div class="container">
+      <div class="shop-inner">
+        <div>
+          <span class="eyebrow amber fade">PhycoDaily Labs</span>
+          <h1 class="h2 fade" style="transition-delay:.07s;margin-bottom:16px">Spirulina, sourced and<br>formulated with science.</h1>
+          <p class="lead fade" style="transition-delay:.12s;max-width:440px">Our research and supply arm — spirulina products for families, and fresh microalgae supply for cafés and retailers.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px" class="fade">
+            <a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20Spirulina%20Powder" class="btn btn-g"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Order via WhatsApp</a>
+            <a href="https://wa.me/971581081055?text=Hi%2C%20I'm%20interested%20in%20wholesale%20spirulina%20supply" class="btn btn-og">Wholesale Enquiry</a>
+          </div>
+        </div>
+        <div class="fade" style="transition-delay:.15s">
+          <div style="background:#fff;border:1px solid var(--SBOR);border-radius:18px;padding:28px">
+            <h3 style="font-size:1rem;font-weight:800;margin-bottom:16px">Why spirulina</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div style="background:var(--SBG);border:1px solid var(--SBOR);border-radius:9px;padding:10px;font-size:.78rem;color:var(--MUT)">🌿 Nutrient-dense</div>
+              <div style="background:var(--SBG);border:1px solid var(--SBOR);border-radius:9px;padding:10px;font-size:.78rem;color:var(--MUT)">🛡️ Immunity support</div>
+              <div style="background:var(--SBG);border:1px solid var(--SBOR);border-radius:9px;padding:10px;font-size:.78rem;color:var(--MUT)">🌱 100% plant-based</div>
+              <div style="background:var(--SBG);border:1px solid var(--SBOR);border-radius:9px;padding:10px;font-size:.78rem;color:var(--MUT)">🔬 Research-backed</div>
+              <div style="background:var(--SBG);border:1px solid var(--SBOR);border-radius:9px;padding:10px;font-size:.78rem;color:var(--MUT)">📋 Clean label</div>
+              <div style="background:var(--SBG);border:1px solid var(--SBOR);border-radius:9px;padding:10px;font-size:.78rem;color:var(--MUT)">🚫 No preservatives</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE PRODUCT -->
+  <div class="container sec-div" style="padding-bottom:60px">
+    <div class="sec-label fade"><h2 class="sec-label-text">Spirulina Powder</h2><span class="sec-pill signature">🌿 Signature</span></div>
     <p class="body-sm fade" style="max-width:620px;margin-bottom:24px;transition-delay:.07s">The ingredient PhycoDaily is named for — a science-backed superfood chosen for its nutritional density, not just a trend ingredient.</p>
 
     <!-- IMG: Premium Mixed Fruit Spirulina Powder — swap src below to update product image -->
-    <div class="signature-feature fade" style="transition-delay:.1s">
+    <div class="signature-feature tilt-card fade" style="transition-delay:.1s">
       <div class="signature-feature-img">
         <img src="images/product-spirulina-powder.jpg" alt="Premium Mixed Fruit Spirulina Powder — PhycoDaily">
       </div>
@@ -722,46 +839,51 @@ footer{background:#0a1c10;padding:52px 0 26px}
       </div>
     </div>
 
-    <div class="b2b-bar fade">
-      <div><span class="eyebrow amber" style="margin-bottom:8px">Wholesale & B2B</span><h3>Bulk Supply & Retail Distribution</h3><p>Wholesale for health food stores, organic grocery retail, corporate wellness and online resellers. India and GCC. Private label available.</p></div>
-      <a href="https://wa.me/971581081055?text=Hi%2C%20I'm%20interested%20in%20wholesale%20pricing%20from%20PhycoDaily%20Pantry" class="btn btn-g">Enquire Now →</a>
+    <!-- IMG: Pure Spirulina Powder — image pending, placeholder shown until product photo is ready -->
+    <div class="signature-feature tilt-card fade" style="transition-delay:.16s;margin-top:20px">
+      <div class="signature-feature-img ph-placeholder">
+        <div class="ph-box">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L4 19"/></svg>
+          <span>Image coming soon</span>
+        </div>
+      </div>
+      <div class="signature-feature-body">
+        <h3 class="prod-name">Pure Spirulina Powder</h3>
+        <p class="prod-desc">100% spirulina — nothing blended in. For smoothies, recipes, or anyone who wants the raw ingredient on its own, without a flavoured mix.</p>
+        <div class="prod-chips"><span class="chip s">🌿 100% Spirulina</span><span class="chip s">🚫 No Additives</span><span class="chip s">🌱 Vegan</span><span class="chip s">🔬 Research-Backed</span></div>
+        <div class="prod-footer"><span class="prod-price-lbl">50g · Order via WhatsApp</span><a href="https://wa.me/971581081055?text=Hi%2C%20I'd%20like%20to%20order%20Pure%20Spirulina%20Powder" class="btn btn-s btn-sm">Order</a></div>
+      </div>
     </div>
   </div>
 
-</div><!-- /shop -->
-
-<!-- ════════════════════════════════
-     SCIENCE
-════════════════════════════════ -->
-<div class="page" id="page-science">
-  <section class="sci-hero"><div class="container"><div style="max-width:580px">
-    <span class="eyebrow fade">Our Science</span>
-    <h1 class="h2 fade" style="transition-delay:.07s;margin-bottom:16px">What we claim<br>and why we claim it.</h1>
-    <p class="lead fade" style="transition-delay:.12s">Every product claim is grounded in published nutritional science. We don't make therapeutic promises — we help families build better daily nutrition habits through real food.</p>
-  </div></div></section>
-
-  <section style="background:#fff;padding:80px 0"><div class="container">
-    <div style="text-align:center;max-width:480px;margin:0 auto" class="fade"><span class="eyebrow">Our Principles</span><h2 class="h2">How we evaluate every product</h2></div>
+  <!-- PRINCIPLES (merged from Science) -->
+  <section style="background:#fff;padding:80px 0;border-top:1px solid var(--LINE)"><div class="container">
+    <div style="text-align:center;max-width:480px;margin:0 auto" class="fade"><span class="eyebrow">Our Science</span><h2 class="h2">How we evaluate every product</h2></div>
     <div class="sci-principles fade" style="transition-delay:.1s">
       <div class="sp-item"><span class="sp-num">01</span><h3 class="sp-title">No therapeutic claims</h3><p class="sp-body">We do not claim our products treat, cure or prevent any condition. We make clean-label, ingredient-based claims only.</p></div>
-      <div class="sp-item"><span class="sp-num">02</span><h3 class="sp-title">Real-food first philosophy</h3><p class="sp-body">Our products complement a varied diet, not replace it. We actively encourage families to combine our mixes with vegetables, proteins, nuts, seeds and dairy.</p></div>
+      <div class="sp-item"><span class="sp-num">02</span><h3 class="sp-title">Real-food first philosophy</h3><p class="sp-body">Our products complement a varied diet, not replace it. We actively encourage families to combine our products with vegetables, proteins, nuts, seeds and dairy.</p></div>
       <div class="sp-item"><span class="sp-num">03</span><h3 class="sp-title">Ingredient transparency</h3><p class="sp-body">Every ingredient is listed. No hidden additives, no proprietary blend obfuscation. If it's in the product, it's on the label.</p></div>
     </div>
   </div></section>
 
-  <section style="background:var(--GBG);padding:80px 0"><div class="container">
-    <div style="text-align:center;max-width:480px;margin:0 auto" class="fade"><span class="eyebrow">The Science of Millets</span><h2 class="h2">Why ancient grains for modern families</h2></div>
-    <div class="millet-grid">
-      <div class="millet-card fade" style="transition-delay:.08s"><span class="mc-grain">🌾</span><h3 class="mc-name">Foxtail Millet (Setaria italica)</h3><p class="mc-body">Low glycaemic index. Rich in complex carbohydrates, dietary fibre and minerals including iron and calcium.</p></div>
-      <div class="millet-card fade" style="transition-delay:.16s"><span class="mc-grain">🌿</span><h3 class="mc-name">Pearl Millet (Pennisetum glaucum)</h3><p class="mc-body">Highest iron content among common cereals. Rich in zinc and B vitamins. Naturally gluten-free.</p></div>
-      <div class="millet-card fade" style="transition-delay:.24s"><span class="mc-grain">🌱</span><h3 class="mc-name">Finger Millet (Eleusine coracana)</h3><p class="mc-body">Exceptionally high calcium — relevant for children and lactating mothers. FAO-recognised as climate-resilient and nutritionally superior.</p></div>
-      <div class="millet-card fade" style="transition-delay:.32s"><span class="mc-grain">🌾</span><h3 class="mc-name">Barnyard Millet (Echinochloa frumentacea)</h3><p class="mc-body">Highest fibre content among millets. Very low glycaemic index. Fast prep for everyday family cooking.</p></div>
-      <div class="millet-card fade" style="transition-delay:.4s"><span class="mc-grain">🌾</span><h3 class="mc-name">Sorghum / Jowar (Sorghum bicolor)</h3><p class="mc-body">Rich in antioxidant phenolic compounds and iron. Naturally gluten-free. Fermentation improves mineral bioavailability.</p></div>
-      <div class="millet-card fade" style="transition-delay:.48s"><span class="mc-grain">🌿</span><h3 class="mc-name">Little Millet (Panicum sumatrense)</h3><p class="mc-body">High in dietary fibre and essential fatty acids. Comparable protein quality to rice and wheat.</p></div>
+  <!-- WHOLESALE / B2B -->
+  <div class="container sec-div" style="padding-bottom:60px">
+    <div class="b2b-bar fade">
+      <div><span class="eyebrow amber" style="margin-bottom:8px">Wholesale &amp; B2B</span><h3>Café &amp; Bulk Spirulina Supply</h3><p>Fresh microalgae and Blue Spirulina supply for cafés, health food stores and retailers across India and the GCC. Private label available.</p></div>
+      <a href="https://wa.me/971581081055?text=Hi%2C%20I'm%20interested%20in%20wholesale%20spirulina%20supply%20from%20PhycoDaily%20Labs" class="btn btn-g">Enquire Now →</a>
     </div>
-    <div class="claims-policy fade"><span class="cp-label">Claims Policy</span><p class="cp-body">All nutritional statements are based on peer-reviewed research. No therapeutic claims are made. Our Everyday Treats range is not a medical nutrition product or meal substitute. We recommend consulting a qualified nutritionist for specific dietary concerns.</p></div>
-  </div></section>
-</div><!-- /science -->
+    <div class="claims-policy fade" style="margin-top:28px"><span class="cp-label">Claims Policy</span><p class="cp-body">All nutritional statements are based on peer-reviewed research. No therapeutic claims are made. We recommend consulting a qualified nutritionist for specific dietary concerns.</p></div>
+  </div>
+
+  <!-- CROSS-POINTER TO PANTRY -->
+  <div class="container" style="padding-bottom:80px">
+    <div class="cross-pointer fade" onclick="goTo('pantry')">
+      <div><span class="cross-pointer-tag">🥣 Also looking for something else?</span><h3>Everyday breakfast mixes and treats are in Pantry</h3></div>
+      <span class="btn btn-og btn-sm">Go to Pantry →</span>
+    </div>
+  </div>
+
+</div><!-- /labs -->
 
 <!-- ════════════════════════════════
      ABOUT
@@ -779,7 +901,7 @@ footer{background:#0a1c10;padding:52px 0 26px}
         <p class="story-pull">"I struggled to find practical, genuinely clean-label nutrition that could realistically fit into daily family life."</p>
         <p class="body-sm" style="margin-bottom:14px">Most products were either heavily processed, loaded with refined sugar, or difficult to use consistently. PhycoDaily Pantry was created to close that gap — identifying, developing and curating better everyday alternatives for modern Indian families.</p>
         <p class="body-sm" style="margin-bottom:14px">Some products are developed under the PhycoDaily Pantry brand through manufacturing partners. Others are carefully selected partner products that meet our standards. Our value lies in product selection, formulation direction, scientific evaluation, and nutrition education.</p>
-        <span onclick="goTo('science')" class="btn btn-og" style="cursor:pointer;margin-top:8px">Read the Science →</span>
+        <span onclick="goTo('labs')" class="btn btn-og" style="cursor:pointer;margin-top:8px">Read the Science →</span>
       </div>
       <div class="story-proof fade" style="transition-delay:.12s">
         <div class="proof-item"><div class="proof-ico">🌾</div><div><strong>Better Breakfasts — Available Now</strong><span>Multi Millet Dosa Mix and Foxtail Millet Idli Mix. Clean-label, no preservatives.</span></div></div>
@@ -815,6 +937,17 @@ footer{background:#0a1c10;padding:52px 0 26px}
       <div class="approach-card fade" style="transition-delay:.16s"><span class="ac-icon">📋</span><h3 class="ac-title">Clean-Label Standard</h3><p class="ac-body">No preservatives, no artificial flavours or colours, no hidden additives. Every ingredient listed in plain language. What's on the label is what's in the product.</p></div>
       <div class="approach-card fade" style="transition-delay:.24s"><span class="ac-icon">🍽️</span><h3 class="ac-title">Real-Food First</h3><p class="ac-body">Our products are designed to work alongside real meals. We educate customers on combining our products with vegetables, proteins and whole foods for the best nutritional outcome.</p></div>
     </div>
+  </div></section>
+  <section style="background:var(--CREAM);padding:88px 0"><div class="container">
+    <div style="text-align:center;max-width:480px;margin:0 auto 40px" class="fade">
+      <span class="eyebrow">Honest Positioning</span>
+      <h2 class="h2">What we are — and are not</h2>
+    </div>
+    <div class="not-inner fade" style="transition-delay:.1s">
+      <div><span class="not-col-label red">What we are not</span><ul class="not-list no"><li>A health drink claiming to boost immunity or brain function</li><li>A fortified powder to replace a balanced meal</li><li>Making therapeutic claims we cannot substantiate</li><li>Positioned as a substitute for mainstream malt-based drink powders</li><li>Hiding sugar or additives behind a "natural" label</li></ul></div>
+      <div><span class="not-col-label green">What we are</span><ul class="not-list yes"><li>Clean-label breakfast mixes and spirulina products</li><li>Natural fruit and nut-based drink mixes for the whole family</li><li>Scientist-curated alternatives families can customise daily</li><li>Honest nutrition education alongside every product</li><li>Every ingredient listed — exactly what it says on the label</li></ul></div>
+    </div>
+    <div class="phil-note fade" style="transition-delay:.16s;margin-top:24px"><strong>Important distinction</strong>Fortified supplements have their place in specific clinical situations. Our focus is different: building everyday nutrition habits through diverse, wholesome real foods.</div>
   </div></section>
 </div><!-- /about -->
 
@@ -869,6 +1002,150 @@ footer{background:#0a1c10;padding:52px 0 26px}
   </div>
 </div><!-- /contact -->
 
+<!-- ════════════════════════════════
+     COMPANY & VISION
+════════════════════════════════ -->
+<div class="page co-page" id="page-company">
+
+  <section class="co-hero">
+    <div class="container">
+      <span class="eyebrow" style="justify-content:center">Company &amp; Vision</span>
+      <h1>One platform. Two divisions. A single question guiding both.</h1>
+      <p>PhycoDaily is a nutrition innovation company built on published science, not marketing trends — bridging everyday family food and next-generation functional nutrition.</p>
+      <div class="co-stamp">Founded by a scientist · Deakin University, Nanobiotechnology &amp; Microalgae Bioprocessing</div>
+    </div>
+  </section>
+
+  <div class="container co-split-wrap">
+    <div class="co-split">
+      <div class="co-half co-labs">
+        <div class="co-tag">🔬 B2B — Supply &amp; R&amp;D</div>
+        <h3>PhycoDaily Labs</h3>
+        <p>Where the science gets sourced, tested, and supplied. Spirulina products, café and bulk supply, and the formulation engine behind the platform's next products.</p>
+        <ul>
+          <li>Spirulina powder — B2C retail</li>
+          <li>Fresh microalgae &amp; Blue Spirulina supply to cafés (GCC)</li>
+          <li>Functional beverage formulation</li>
+        </ul>
+      </div>
+      <div class="co-half co-pantry">
+        <div class="co-tag">🥣 B2C — Retail</div>
+        <h3>PhycoDaily Pantry</h3>
+        <p>Clean-label everyday foods that fit into family routines already in motion. We don't replace meals — we make the ones families already cook a little better.</p>
+        <ul>
+          <li>Breakfast mixes &amp; everyday treats</li>
+          <li>Natural nutrition blends</li>
+          <li>Sold direct to Indian households today</li>
+        </ul>
+      </div>
+    </div>
+    <div class="co-split-join">Same research, two front doors</div>
+  </div>
+
+  <section class="co-sec">
+    <div class="container">
+      <div class="co-sec-head">
+        <span class="eyebrow">Why now</span>
+        <h2 class="h2">The gap isn't new. The moment to close it is.</h2>
+        <p>Three shifts are converging at the same time, and none of them existed at this scale five years ago.</p>
+      </div>
+      <div class="co-now-grid">
+        <div class="co-now-card">
+          <h4>Diets have industrialised faster than health has kept up</h4>
+          <p>Ultra-processed foods now dominate family breakfast tables, and diet-linked conditions like diabetes are climbing in exactly the households we sell to — creating demand for alternatives, not another lecture.</p>
+        </div>
+        <div class="co-now-card">
+          <h4>Supplement fatigue is real and measurable</h4>
+          <p>Consumers have cycled through enough fortified powders and "magic scoops" to be skeptical of them by default. Trust has shifted toward whole, recognisable ingredients — which is where Pantry already lives.</p>
+        </div>
+        <div class="co-now-card">
+          <h4>The ingredient science is finally supply-ready</h4>
+          <p>Microalgae and functional-ingredient supply chains have matured enough in the last few years to move from lab curiosity to café and B2B customer — which is what makes Labs viable today, not in a decade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="co-sec co-alt">
+    <div class="container">
+      <div class="co-founder">
+        <div class="co-credential">
+          <div class="co-name">Dr. Priyanshu Jain</div>
+          <div class="co-role">Founder, PhycoDaily</div>
+          <div class="co-stat"><span>PhD</span><span>Nanobiotechnology</span></div>
+          <div class="co-stat"><span>Institution</span><span>Deakin University, AUS</span></div>
+          <div class="co-stat"><span>Research</span><span>8+ years</span></div>
+          <div class="co-stat"><span>Publications</span><span>h-index 5</span></div>
+        </div>
+        <div>
+          <span class="eyebrow signature">Founder story</span>
+          <blockquote>Built by a scientist. Designed for families.</blockquote>
+          <p>During a PhD in Nanobiotechnology and Microalgae Bioprocessing, our founder spent years studying bioactive compounds and sustainable nutrition. Becoming a mother made it clear that scientific knowledge rarely reaches everyday family meals.</p>
+          <p style="margin-top:14px">Most families don't need another supplement — they need practical, enjoyable foods they can use every day. PhycoDaily exists to bring evidence-based nutrition out of the laboratory and into the kitchen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="co-sec">
+    <div class="container">
+      <div class="co-sec-head">
+        <span class="eyebrow">Our science</span>
+        <h2 class="h2">Science before marketing.</h2>
+        <p>Every ingredient and product concept begins with published nutritional science. We don't chase trends or make therapeutic promises — we focus on evidence, ingredient quality, and formulations people can realistically use every day.</p>
+      </div>
+      <div class="co-compare">
+        <div class="co-no">
+          <h4>Most food brands</h4>
+          <ul>
+            <li>Follow trends</li>
+            <li>Focus on taste alone</li>
+            <li>Highly processed</li>
+            <li>One product category</li>
+            <li>Generic ingredients</li>
+          </ul>
+        </div>
+        <div class="co-yes">
+          <h4>PhycoDaily</h4>
+          <ul>
+            <li>Starts with science</li>
+            <li>Balances taste with nutrition</li>
+            <li>Clean-label approach</li>
+            <li>Long-term nutrition platform</li>
+            <li>Research-driven ingredient selection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="co-sec co-alt">
+    <div class="container">
+      <div class="co-sec-head">
+        <span class="eyebrow">Product filter</span>
+        <h2 class="h2">Every product answers five questions before it exists.</h2>
+        <p>If the answer to any of these is no, we don't launch it. This is the same filter internally — public here because it's the clearest proof of how we decide.</p>
+      </div>
+      <div class="co-filter-list">
+        <div class="co-filter-item">Is it supported by nutritional science?</div>
+        <div class="co-filter-item">Is it practical for everyday life?</div>
+        <div class="co-filter-item">Is it enjoyable enough to become a habit?</div>
+        <div class="co-filter-item">Is it clean-label?</div>
+        <div class="co-filter-item">Would we confidently serve it to our own family?</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="co-position">
+    <div class="container">
+      <div class="co-not">We are not a spirulina company. We are not a millet company. We are not a supplement company.</div>
+      <h2>We are building a science-backed functional nutrition platform — starting with everyday foods.</h2>
+      <div class="co-aside">Microalgae is one of the technologies that differentiates us. It isn't the only thing we do.</div>
+    </div>
+  </div>
+
+</div><!-- /company -->
+
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div class="container">
@@ -878,18 +1155,18 @@ footer{background:#0a1c10;padding:52px 0 26px}
         <span class="f-wordmark">PhycoDaily<span style="color:var(--G);opacity:1">.</span></span>
         <p class="f-tagline">Clean-label millet breakfast mixes and natural nutrition blends for Indian families. Built on science. Designed for real kitchens.</p>
       </div>
-      <div class="f-col"><h4>Navigate</h4><ul><li><span onclick="goTo('')">Home</span></li><li><span onclick="goTo('shop')">Shop</span></li><li><span onclick="goTo('science')">Science</span></li><li><span onclick="goTo('about')">About</span></li><li><span onclick="goTo('contact')">Contact</span></li></ul></div>
-      <div class="f-col"><h4>Products</h4><ul><li><span onclick="goTo('shop')">Multi Millet Dosa Mix</span></li><li><span onclick="goTo('shop')">Foxtail Millet Idli Mix</span></li><li><span onclick="goTo('shop')">ABC Date Mix</span></li><li><span onclick="goTo('shop')">Nuts Choco Mix</span></li><li><span onclick="goTo('shop')">Banana Mix</span></li><li><span onclick="goTo('shop')">Dates Choco Mix</span></li><li><span onclick="goTo('shop')">Spirulina Powder</span></li></ul></div>
+      <div class="f-col"><h4>Navigate</h4><ul><li><span onclick="goTo('')">Home</span></li><li><span onclick="goTo('labs')">Labs</span></li><li><span onclick="goTo('pantry')">Pantry</span></li><li><span onclick="goTo('about')">About</span></li><li><span onclick="goTo('contact')">Contact</span></li></ul></div>
+      <div class="f-col"><h4>Products</h4><ul><li><span onclick="goTo('labs')">Spirulina Powder</span></li><li><span onclick="goTo('labs')">Wholesale &amp; B2B Supply</span></li><li><span onclick="goTo('pantry')">Breakfast Mixes</span></li><li><span onclick="goTo('pantry')">Everyday Treats</span></li></ul></div>
       <div class="f-col"><h4>Contact</h4><ul><li><span>📍 Dubai, UAE</span></li><li><a href="mailto:info@phycodaily.com">info@phycodaily.com</a></li><li><a href="tel:+971581081055">+971 581 081 055</a></li><li><a href="https://www.linkedin.com/in/drpriyanshujain/" target="_blank">LinkedIn</a></li></ul></div>
     </div>
-    <div class="f-bottom"><span>© 2025 PhycoDaily Pantry™. All rights reserved.</span><span>Nutritional statements are informational only. Not intended to diagnose, treat or cure any condition.</span></div>
+    <div class="f-bottom"><span>© 2025 PhycoDaily Pantry™. All rights reserved.</span><span>Nutritional statements are informational only. Not intended to diagnose, treat or cure any condition. · <span onclick="goTo('company')" style="color:rgba(255,255,255,.4);cursor:pointer">Company &amp; Vision</span></span></div>
   </div>
 </footer>
 
 <a href="https://wa.me/971581081055" class="wa-float" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <script>
-const PAGES={'':'home','shop':'shop','science':'science','about':'about','contact':'contact'};
+const PAGES={'':'home','labs':'labs','pantry':'pantry','about':'about','contact':'contact','company':'company'};
 function goTo(p){history.pushState(null,'','#'+(p||''));render(p)}
 function render(p){
   const id=PAGES[p]||'home';
@@ -898,7 +1175,8 @@ function render(p){
   if(pg)pg.classList.add('active');
   window.scrollTo(0,0);
   document.querySelectorAll('.nav-lnk').forEach(l=>{l.classList.remove('active-g','active-a')});
-  document.querySelectorAll(`.nav-lnk[data-page="${p}"]`).forEach(l=>{l.classList.add(p==='shop'?'active-a':'active-g')});
+  document.querySelectorAll(`.nav-lnk[data-page="${p}"]`).forEach(l=>{l.classList.add(p==='labs'?'active-a':'active-g')});
+  navEl.classList.toggle('nav-pantry',id==='pantry');
   setTimeout(triggerFades,80);
 }
 window.addEventListener('popstate',()=>render((location.hash||'').replace('#','')));
@@ -911,37 +1189,95 @@ tog.addEventListener('click',()=>{lnks.classList.toggle('open');tog.textContent=
 lnks.querySelectorAll('[data-page]').forEach(a=>a.addEventListener('click',()=>{lnks.classList.remove('open');tog.textContent='☰'}));
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.07,rootMargin:'0px 0px -24px 0px'});
 function triggerFades(){document.querySelectorAll('.page.active .fade:not(.in)').forEach(el=>io.observe(el))}
-/* ── HERO PARALLAX: cursor-driven tilt, layered on top of the existing morph/orbit loops ── */
+
+triggerFades();
+
+/* ══════════ INTERACTIVE / MOTION LAYER ══════════ */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Scroll progress bar */
 (function(){
-  const visual=document.getElementById('heroVisual');
-  const blob=document.getElementById('heroBlob');
-  const floats=[document.getElementById('heroFloat1'),document.getElementById('heroFloat2'),document.getElementById('heroFloat3')];
-  if(!visual||!blob) return;
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduceMotion || window.innerWidth<=900) return;
-  let raf=null;
-  visual.addEventListener('mousemove',e=>{
-    const r=visual.getBoundingClientRect();
-    const px=(e.clientX-r.left)/r.width-0.5;   // -0.5..0.5
-    const py=(e.clientY-r.top)/r.height-0.5;
-    if(raf) return;
-    raf=requestAnimationFrame(()=>{
-      blob.style.transform=`translate(${px*14}px, ${py*14}px)`;
-      floats.forEach((f,i)=>{
-        if(!f) return;
-        const depth=6+i*3; // each badge drifts a little differently
-        f.style.transform=(f.id==='heroFloat3'?'translateY(-50%) ':'')+`translate(${px*depth}px, ${py*depth}px)`;
-      });
-      raf=null;
-    });
-  });
-  visual.addEventListener('mouseleave',()=>{
-    blob.style.transform='';
-    floats.forEach(f=>{ if(f) f.style.transform = f.id==='heroFloat3' ? 'translateY(-50%)' : ''; });
+  const bar=document.getElementById('scrollProgress');
+  if(!bar) return;
+  function update(){
+    const h=document.documentElement;
+    const scrolled=h.scrollTop;
+    const max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0 ? (scrolled/max)*100 : 0)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+
+/* Cursor spotlight glow on the hero band */
+(function(){
+  const band=document.getElementById('heroBand');
+  if(!band||reduceMotion) return;
+  band.addEventListener('mousemove',e=>{
+    const r=band.getBoundingClientRect();
+    band.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    band.style.setProperty('--my',(e.clientY-r.top)+'px');
   });
 })();
 
-triggerFades();
+/* 3D tilt on cards */
+(function(){
+  if(reduceMotion) return;
+  document.querySelectorAll('.tilt-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-0.5;
+      const py=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform=`perspective(800px) rotateY(${px*4}deg) rotateX(${-py*4}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
+  });
+})();
+
+/* Animated count-up for stats */
+(function(){
+  const nums=document.querySelectorAll('.sn[data-count]');
+  if(!nums.length) return;
+  const counterIO=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      const el=entry.target;
+      counterIO.unobserve(el);
+      const target=parseInt(el.dataset.count,10);
+      const suffix=el.dataset.suffix||'';
+      if(reduceMotion){ el.textContent=target+suffix; return; }
+      const dur=1100, start=performance.now();
+      function tick(now){
+        const p=Math.min((now-start)/dur,1);
+        const eased=1-Math.pow(1-p,3);
+        el.textContent=Math.round(eased*target)+suffix;
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:0.4});
+  nums.forEach(n=>counterIO.observe(n));
+})();
+
+/* Smooth page-transition fade on tab switch */
+(function(){
+  const main=document.querySelector('main')||document.body;
+  const origGoTo=window.goTo;
+  if(typeof origGoTo!=='function') return;
+  window.goTo=function(p){
+    if(reduceMotion){ origGoTo(p); return; }
+    const active=document.querySelector('.page.active');
+    if(active){
+      active.style.transition='opacity .16s ease';
+      active.style.opacity='0';
+      setTimeout(()=>{ origGoTo(p); window.scrollTo(0,0);
+        const next=document.querySelector('.page.active');
+        if(next){ next.style.opacity='0'; requestAnimationFrame(()=>{ next.style.transition='opacity .28s ease'; next.style.opacity='1'; }); }
+      },160);
+    } else { origGoTo(p); }
+  };
+})();
 render((location.hash||'').replace('#',''));
 
 // Track every WhatsApp click as a GA4 event — this is the real "interest" signal, not just pageviews
